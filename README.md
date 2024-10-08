@@ -22,6 +22,8 @@ Please show Jae some support and star the KEE repo if you like it.
 
 To install KEELib, simply run `pip install keelib`.
 
+It has only been tested on Python 3.11 and 3.12 at the time of writing.
+
 # Usage
 
 ~~This section will explain every feature of KEE and XKEE, if you want to skip to certain parts, look [here](https://github.com/JaegerwaldDev/KEE/tree/main?tab=readme-ov-file#topics)!~~
