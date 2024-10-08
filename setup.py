@@ -9,7 +9,7 @@ setup(
     description='KEE by Jaegerwald, but as a library.',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    author='Zoid',
+    author='TheZoidMaster',
     author_email='',
     packages=find_packages(),
     install_requires=[
@@ -20,5 +20,9 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent"
-    ]
+    ],
+    project_urls={
+        "Source": "https://github.com/TheZoidMaster/keelib",
+        "Original": "https://github.com/JaegerwaldDev/KEE"
+    }
 )
