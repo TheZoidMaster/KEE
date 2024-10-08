@@ -1,9 +1,5 @@
-/__pycache__
-
-*.kee
-*.xkee
-*.zip
-testing.txt
-*.png
-*.gif
-*.jpeg
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
