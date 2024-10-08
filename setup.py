@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='keelib',
-    version='0.1.1',
+    version='0.1.2',
     description='KEE by Jaegerwald, but as a library.',
     long_description=long_description,
     long_description_content_type="text/markdown",

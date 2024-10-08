@@ -1,4 +1,4 @@
-<h1 align="center"><img src="graphics/kee_github.svg" height="256px"><br>KEELib</h1>
+<h1 align="center"><img src="https://raw.githubusercontent.com/TheZoidMaster/KEELib/refs/heads/main/graphics/kee_github.svg" height="256px"><br>KEELib</h1>
 
 <p align="center"><strong>An unoffical KEE library.</strong></p>
 
