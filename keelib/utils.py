@@ -2,6 +2,15 @@ import numpy
 
 
 def open_file(file_path):
+    """
+    Opens a file and reads its content as bytes.
+
+    Args:
+        file_path (str): The path to the file to open.
+
+    Returns:
+        bytes: The content of the file as bytes.
+    """
     with open(file_path, "rb") as file:
         file_content = file.read()
 
@@ -9,6 +18,15 @@ def open_file(file_path):
 
 
 def open_key(key_path):
+    """
+    Opens a key file and reads its content as a list of bytes.
+
+    Args:
+        key_path (str): The path to the key file to open.
+
+    Returns:
+        list: A list of bytes read from the key file.
+    """
     key_instructions = []
     with open(key_path, "rb") as key:
         key = key.read()
@@ -20,6 +38,19 @@ def open_key(key_path):
 
 
 def modify_file(list: bool, value, file_content=None, decrypt=False):
+    """
+    Modifies a file by adding or subtracting a value to/from each byte of the file.
+
+    Args:
+        list (bool): Whether the value is a list of bytes or a single byte.
+        value (list or int): The value to add or subtract to/from each byte of the file.
+        file_content (bytes): The content of the file as bytes. Defaults to None.
+        decrypt (bool): Whether to subtract the value from the file content. Defaults to False.
+
+    Returns:
+        bytes: The modified content of the file as bytes.
+    """
+
     new = []
     if list and not (decrypt):
         for i in range(0, len(file_content)):
@@ -39,6 +70,23 @@ def modify_file(list: bool, value, file_content=None, decrypt=False):
 
 
 def linear_gradient(key_instructions: list, file_content=None, decrypt=False):
+    """
+    Applies a linear gradient to the file content based on the key instructions.
+
+    The gradient will go from the second value in the key instructions to the
+    third value in the key instructions. If the length of the file content is
+    zero, the gradient will be one step.
+
+    Args:
+        key_instructions (list): A list of bytes representing the key instructions.
+        file_content (bytes): The content of the file as bytes. Defaults to None.
+        decrypt (bool): Whether to subtract the gradient from the file content. Defaults to False.
+
+    Returns:
+        list: A list of two elements. The first element is the modified key instructions.
+        bytes: The modified content of the file as bytes.
+    """
+
     a, b = key_instructions[1], key_instructions[2]
     total_steps = len(file_content)
 
@@ -54,6 +102,22 @@ def linear_gradient(key_instructions: list, file_content=None, decrypt=False):
 
 
 def gradient(key_instructions: list, file_content=None, decrypt=False):
+    """
+    Applies a gradient to the file content based on the key instructions.
+
+    The gradient will go from the second value in the key instructions to the
+    third value, then to the fourth value, and finally to the fifth value. If the
+    length of the file content is zero, the gradient will be one step.
+
+    Args:
+        key_instructions (list): A list of bytes representing the key instructions.
+        file_content (bytes): The content of the file as bytes. Defaults to None.
+        decrypt (bool): Whether to subtract the gradient from the file content. Defaults to False.
+
+    Returns:
+        list: A list of two elements. The first element is the modified key instructions.
+        bytes: The modified content of the file as bytes.
+    """
     a, b, c, d = key_instructions[1], key_instructions[2], key_instructions[3], key_instructions[4]
     total_steps = len(file_content)
 
@@ -93,6 +157,18 @@ def gradient(key_instructions: list, file_content=None, decrypt=False):
 
 
 def add(key_instructions: list, file_content=None, decrypt=False):
+    """
+    Adds a value to each byte of the file content.
+
+    Args:
+        key_instructions (list): A list of bytes representing the key instructions.
+        file_content (bytes): The content of the file as bytes. Defaults to None.
+        decrypt (bool): Whether to subtract the value from the file content. Defaults to False.
+
+    Returns:
+        list: A list of two elements. The first element is the modified key instructions.
+        bytes: The modified content of the file as bytes.
+    """
     file_content = modify_file(
         False, key_instructions[1], file_content, decrypt)
 
